@@ -1,0 +1,22 @@
+SELECT
+    *
+INTO
+    ArchiveOutput
+FROM
+    INPUT_Source 
+
+
+SELECT
+	Device,
+	System.TimeStamp() AS Time,
+	COUNT(*) AS [Count]
+INTO
+	AlertOutput
+FROM
+	INPUT_Source  
+WHERE temperature > 30
+GROUP BY
+	Device,
+	TumblingWindow(minute, 10)
+HAVING
+	[Count] >= 3   
