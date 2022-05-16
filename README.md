@@ -13,5 +13,4 @@ For IoT experimentation
 - PySpark Structured Streaming API is used to read from an IoT Hub stream of data and write the data in it's raw format directly into Delta a table 
 
 
-### Instructions
 
